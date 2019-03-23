@@ -1,4 +1,4 @@
-package com.example.simone.provadbroom;
+package com.example.domenico.Zarathustra.backend.server.tables;
 
 import android.arch.persistence.room.Entity;
 import android.arch.persistence.room.Ignore;
