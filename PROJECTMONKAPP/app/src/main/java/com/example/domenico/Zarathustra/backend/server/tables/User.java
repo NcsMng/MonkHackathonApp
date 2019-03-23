@@ -1,24 +1,24 @@
-package com.example.domenico.Zarathustra.backend.server;
+package com.example.domenico.Zarathustra.backend.server.tables;
 
 public class User {
 	private int imageId;
 	private String username;
 	private String password;
-	private String[] names;
+	private String name;
 	private String surname;
 	
-	public User(int imageId, String username, String password, String[] names, String surname) {
+	public User(int imageId, String username, String password, String name, String surname) {
 		this.imageId = imageId;
 		this.username = username;
 		this.password = password;
-		this.names = names;
+		this.name = name;
 		this.surname = surname;
 	}
-	public String[] getNames() {
-		return names;
+	public String getName() {
+		return name;
 	}
-	public void setNames(String[] names) {
-		this.names = names;
+	public void setNames(String name) {
+		this.name = name;
 	}
 	public String getSurname() {
 		return surname;

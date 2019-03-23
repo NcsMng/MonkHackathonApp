@@ -26,7 +26,8 @@ public class PostsAdapter extends RecyclerView.Adapter<PostsViewHolder> {
         // recupera i dati per quella posizione
         String title = posts.get(i).getTitle();
         String description = posts.get(i).getContent();
-        String author = posts.get(i).getAuthor();
+
+        String author = "" + posts.get(i).getAuthor().getName() + posts.get(i).getAuthor().getSurname();
         PostsViewHolder.homepage.setText(marca);
         PostsViewHolder.colore.setBackgroundResource(colore);
     }
