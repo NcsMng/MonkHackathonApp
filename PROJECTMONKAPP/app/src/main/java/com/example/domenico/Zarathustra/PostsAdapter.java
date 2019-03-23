@@ -22,11 +22,12 @@ public class PostsAdapter extends RecyclerView.Adapter<PostsViewHolder> {
     @Override
     public void onBindViewHolder(@NonNull PostsViewHolder PostsViewHolder, int i) {
         // recupera i dati per quella posizione
+        int imagepath = posts.get(i).getAuthor().getImageId();
+        String fullname = "" + posts.get(i).getAuthor().getName() + posts.get(i).getAuthor().getSurname();
+        String content = posts.get(i).getContent();
         String title = posts.get(i).getTitle();
-        String description = posts.get(i).getContent();
-
         String author = "" + posts.get(i).getAuthor().getName() + posts.get(i).getAuthor().getSurname();
-        PostsViewHolder.homepage.setText(marca);
+        PostsViewHolder.
         PostsViewHolder.colore.setBackgroundResource(colore);
     }
 
