@@ -1,8 +1,8 @@
-package com.example.domenico.Zarathustra.backend;
+package com.example.domenico.Zarathustra.backend.api;
 
 public class API {
 	private API instance;
-	private BackEndMap backEndMap;
+	//private BackEndMap backEndMap;
 
 	private API() {
 		//TODO request server file map
@@ -14,7 +14,22 @@ public class API {
 		return instance;
 	}
 
-	public BackEndMap getMap(){
+	public boolean loginValidation(String user, String pw){
+		if( user.equals("admin") && pw.equals("admin")){
+			SharedPreferences.set("LoggedIn","True");
+			return true;
+		}
+	}
+
+	public boolean isSessionAlreadyStarted(){
+		return SharedPreferences.get("LoggedIn").equals("True");
+	}
+
+	public boolean logout(){
+		SharedPreferences.set("LoggedIn", "False");
+	}
+
+	/*public BackEndMap getMap(){
 		if( backEndMap == null){
 			backEndMap = makeMap();
 		}
@@ -27,10 +42,10 @@ public class API {
 
 	private void reloadMap(){
 		backEndMap = makeMap();
-	}
+	}*/
 	
 }
-
+/*
 public class BackEndMap(){
 
 }
@@ -159,4 +174,4 @@ public class Shade(){
 		return super.isEnabled();
 	}
 }
-
+*/
