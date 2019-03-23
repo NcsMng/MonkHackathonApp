@@ -7,7 +7,8 @@ public abstract class Post {
 	private String content;
 	private LocalDateTime submittingTime;
 	
-	public Post(String title, User author, String content, LocalDateTime submittingTime) {
+	public Post(int id, String title, User author, String content, LocalDateTime submittingTime) {
+		this.id = id;
 		this.content=content;
 		this.title = title;
 		this.author = author;

@@ -4,8 +4,8 @@ public class SuggestionPost extends Post{
 	List<User> likes;
 
 
-	public SuggestionPost(String title, User author, String content){
-		super(title, author, content);
+	public SuggestionPost(int id, String title, User author, String content){
+		super(id, title, author, content);
 		likes = new ArrayList<>();
 	}
 
