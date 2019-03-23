@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">MonkAPP2K19</string>
+    <string name="errorMessage"> </string>
 </resources>

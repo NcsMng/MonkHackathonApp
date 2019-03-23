@@ -1,4 +1,4 @@
-package com.example.domenico.Zarathustra;
+/*package com.example.domenico.Zarathustra;
 
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
@@ -16,3 +16,4 @@ public class PostsViewHolder extends RecyclerView.ViewHolder {
         descrizione = itemView.findViewById(R.id.descrizione);
     }
 }
+*/

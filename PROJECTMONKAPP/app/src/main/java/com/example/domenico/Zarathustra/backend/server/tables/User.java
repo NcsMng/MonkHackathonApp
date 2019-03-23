@@ -1,4 +1,4 @@
-package com.example.simone.provadbroom;
+package com.example.domenico.Zarathustra.backend.server.tables;
 
 public class User {
 	private int imageId;

@@ -1,1 +1,1 @@
-pakage com.example.domenico.Zarathustra.backend.server;
+package com.example.domenico.Zarathustra.backend.server;

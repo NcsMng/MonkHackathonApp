@@ -1,14 +1,14 @@
 package com.example.domenico.Zarathustra.backend.api;
 
 public class API {
-	private API instance;
+	private static API instance;
 	//private BackEndMap backEndMap;
 
 	private API() {
 		//TODO request server file map
 	}
 
-	public API getInstance(){
+	public static API getInstance(){
 		if(instance==null)
 			instance = new API();
 		return instance;
@@ -16,17 +16,18 @@ public class API {
 
 	public boolean loginValidation(String user, String pw){
 		if( user.equals("admin") && pw.equals("admin")){
-			SharedPreferences.set("LoggedIn","True");
+			SharedPreferencesManager.set("LoggedIn","True");
 			return true;
 		}
+		return false;
 	}
 
 	public boolean isSessionAlreadyStarted(){
-		return SharedPreferences.get("LoggedIn").equals("True");
+		return "True".equals(SharedPreferencesManager.get("LoggedIn"));
 	}
 
-	public boolean logout(){
-		SharedPreferences.set("LoggedIn", "False");
+	public void logout(){
+		SharedPreferencesManager.set("LoggedIn", "False");
 	}
 
 	/*public BackEndMap getMap(){

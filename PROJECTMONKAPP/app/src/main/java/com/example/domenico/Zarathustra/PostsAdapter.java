@@ -1,4 +1,4 @@
-package com.example.domenico.Zarathustra;
+/*package com.example.domenico.Zarathustra.backend.server.tables.;
 
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
@@ -36,4 +36,4 @@ public class PostsAdapter extends RecyclerView.Adapter<PostsViewHolder> {
     public int getItemCount() {
         return 0;
     }
-}
+}*/
