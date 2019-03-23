@@ -10,7 +10,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name="com.example.domenico.Zarathustra.HomePage" />
-        <activity android:name="com.example.domenico.Zarathustra.MainActivity">
+        <activity android:name="com.example.domenico.Zarathustra.Login">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
