@@ -12,12 +12,12 @@ public class SharedPreferencesManager {
         SharedPreferencesManager.c = c;
     }
     public static void set(String name, String value) {
-        SharedPreferences sharedPref = c.getSharedPreferences("utente", MODE_PRIVATE);
+        SharedPreferences sharedPref = c.getSharedPreferences("prefs", MODE_PRIVATE);
         SharedPreferences.Editor editor = sharedPref.edit();
         editor.putString(name, value);
         editor.apply();
     }
     public static String get (String name){
-        return null;
+        return c.getSharedPreferences("prefs", MODE_PRIVATE).getString(name, null);
     }
 }
