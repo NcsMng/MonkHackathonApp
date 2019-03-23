@@ -1,11 +1,18 @@
-package com.example.domenico.Zarathustra.backend.server;
+package com.example.simone.provadbroom;
 
+import android.arch.persistence.room.Entity;
+
+import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.List;
+
+@Entity
 public class SuggestionPost extends Post{
 	List<User> likes;
 
 
-	public SuggestionPost(int id, String title, User author, String content){
-		super(id, title, author, content);
+	public SuggestionPost(String title, User author, String content, LocalDateTime submittingDate){
+		super(title, author, content, submittingDate);
 		likes = new ArrayList<>();
 	}
 
@@ -18,17 +25,17 @@ public class SuggestionPost extends Post{
 	private boolean contains(User liker){
 		for(User u:likes)
 			if(u.equals(liker))
-				return true
+				return true;
 		return false;
 	}
-	
-	public List<User> getLikes() {
-		return likes;
-	}
-	
-	public void setLikes(List<User> likes) {
-		this.likes = likes;
-	}
-	
+
 	public int getLikesAmount(){ return likes.size();}
+
+    public List<User> getLikes() {
+        return likes;
+    }
+
+    public void setLikes(List<User> likes) {
+        this.likes = likes;
+    }
 }
