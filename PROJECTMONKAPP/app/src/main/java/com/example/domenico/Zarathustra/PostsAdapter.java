@@ -1,14 +1,12 @@
-/*package com.example.domenico.Zarathustra.backend.server.tables.;
+package com.example.domenico.Zarathustra;
 
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-
-import com.example.domenico.Zarathustra.backend.server.Post;
-
 import java.util.List;
+import com.example.domenico.Zarathustra.backend.server.tables.Post;
 
 
 public class PostsAdapter extends RecyclerView.Adapter<PostsViewHolder> {
@@ -17,7 +15,7 @@ public class PostsAdapter extends RecyclerView.Adapter<PostsViewHolder> {
     @NonNull
     @Override
     public PostsViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
-        View myView = inflater.inflate(R.layout.PostsRecycleViewRow, viewGroup, false);
+        View myView = inflater.inflate(R.layout.row_suggestions, viewGroup, false);
         return new PostsViewHolder(myView,this);
     }
 
@@ -36,4 +34,4 @@ public class PostsAdapter extends RecyclerView.Adapter<PostsViewHolder> {
     public int getItemCount() {
         return 0;
     }
-}*/
+}
