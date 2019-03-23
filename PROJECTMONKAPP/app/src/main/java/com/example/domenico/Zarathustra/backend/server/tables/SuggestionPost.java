@@ -4,8 +4,8 @@ public class SuggestionPost extends Post{
 	List<User> likes;
 
 
-	public SuggestionPost(String title, User author, String content){
-		super(title, author, content);
+	public SuggestionPost(int id, String title, User author, String content){
+		super(id, title, author, content);
 		likes = new ArrayList<>();
 	}
 
@@ -21,6 +21,14 @@ public class SuggestionPost extends Post{
 				return true
 		return false;
 	}
-
+	
+	public List<User> getLikes() {
+		return likes;
+	}
+	
+	public void setLikes(List<User> likes) {
+		this.likes = likes;
+	}
+	
 	public int getLikesAmount(){ return likes.size();}
 }
