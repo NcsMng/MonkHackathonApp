@@ -23,6 +23,7 @@ public class Login extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setVisible(false);
         SharedPreferencesManager.init(getApplicationContext());
         setContentView(R.layout.activity_login);
         username = findViewById(R.id.username);
@@ -31,7 +32,9 @@ public class Login extends AppCompatActivity {
         error = findViewById(R.id.error);
         final Intent goToHomePage = new Intent(Login.this, HomePage.class);
         if (API.getInstance().isSessionAlreadyStarted()) {
+            finish();
             startActivity(goToHomePage);
+            return;
         } else {
             doLogin.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -46,6 +49,7 @@ public class Login extends AppCompatActivity {
                         password.getBackground().setColorFilter(getResources().getColor(R.color.Transparent),
                                 PorterDuff.Mode.SRC_ATOP);
                         error.setVisibility(View.INVISIBLE);
+                        return;
                     } else if (user.equals("") && !pass.equals("")) {
                         errorMessage = "username required";
                         username.getBackground().setColorFilter(getResources().getColor(R.color.monkRed),
@@ -79,6 +83,7 @@ public class Login extends AppCompatActivity {
                 }
 
             });
+            setVisible(true);
         }
     }
 }
