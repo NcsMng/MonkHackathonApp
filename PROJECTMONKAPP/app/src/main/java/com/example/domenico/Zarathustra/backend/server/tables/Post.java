@@ -1,16 +1,23 @@
 package com.example.domenico.Zarathustra.backend.server;
 
-public abstract class Post{
+public abstract class Post {
+	private long id;
 	private String Title;
 	private User author;
 	private String content;
 	private LocalDateTime submittingTime;
-
-	public Post(String title, User author, String content, LocalDateTime submittingTime){
+	
+	public Post(String title, User author, String content, LocalDateTime submittingTime) {
 		this.content=content;
 		this.title = title;
 		this.author = author;
 		this.submittingTime = submittingTime;
+	}
+	public long getId() {
+		return id;
+	}
+	public void setId(long id) {
+		this.id = id;
 	}
 	public void setTitle(String title) {
 		Title = title;
