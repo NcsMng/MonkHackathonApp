@@ -14,7 +14,5 @@ public class PostsViewHolder extends RecyclerView.ViewHolder {
         time = itemView.findViewById(R.id.time);
         title = itemView.findViewById(R.id.title);
         descrizione = itemView.findViewById(R.id.descrizione);
-
-
     }
 }
