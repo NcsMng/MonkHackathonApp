@@ -12,7 +12,21 @@ public abstract class Post{
 		this.author = author;
 		this.submittingTime = submittingTime;
 	}
-
+	public void setTitle(String title) {
+		Title = title;
+	}
+	public void setAuthor(User author) {
+		this.author = author;
+	}
+	public void setContent(String content) {
+		this.content = content;
+	}
+	public LocalDateTime getSubmittingTime() {
+		return submittingTime;
+	}
+	public void setSubmittingTime(LocalDateTime submittingTime) {
+		this.submittingTime = submittingTime;
+	}
 	public String getTitle(){ return this.title;}
 	public User getAuthor(){ return this.author;}
 	public String getContent(){ return this.content;}

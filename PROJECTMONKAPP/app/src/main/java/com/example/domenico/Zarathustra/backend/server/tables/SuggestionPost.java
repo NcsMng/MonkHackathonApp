@@ -21,6 +21,14 @@ public class SuggestionPost extends Post{
 				return true
 		return false;
 	}
-
+	
+	public List<User> getLikes() {
+		return likes;
+	}
+	
+	public void setLikes(List<User> likes) {
+		this.likes = likes;
+	}
+	
 	public int getLikesAmount(){ return likes.size();}
 }
