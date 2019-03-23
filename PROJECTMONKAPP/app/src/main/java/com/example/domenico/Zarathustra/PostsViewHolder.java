@@ -1,19 +1,24 @@
-/*package com.example.domenico.Zarathustra;
+package com.example.domenico.Zarathustra;
 
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
-import android.widget.EditText;
+
+import android.widget.ImageView;
+import android.widget.TextView;
 
 public class PostsViewHolder extends RecyclerView.ViewHolder {
-    public EditText time,title,descrizione;
+    public ImageView profileImage;
+    public TextView fullname, titolo, content;
     public PostsAdapter adapter;
+
     public PostsViewHolder(@NonNull View itemView, PostsAdapter adapter){
         super(itemView);
         this.adapter = adapter;
-        time = itemView.findViewById(R.id.time);
-        title = itemView.findViewById(R.id.title);
-        descrizione = itemView.findViewById(R.id.descrizione);
+        profileImage = profileImage.findViewById(R.id.profileImage);
+        fullname = fullname.findViewById(R.id.name);
+        titolo = titolo.findViewById(R.id.title);
+        content = content.findViewById(R.id.content);
     }
+    //eventuali onClick
 }
-*/

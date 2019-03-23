@@ -10,6 +10,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 import com.example.domenico.Zarathustra.backend.api.API;
+import com.example.domenico.Zarathustra.backend.api.SharedPreferencesManager;
 
 public class Login extends AppCompatActivity {
     String user, pass;
@@ -18,9 +19,12 @@ public class Login extends AppCompatActivity {
     Button doLogin;
     TextView error;
     String errorMessage;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setVisible(false);
+        SharedPreferencesManager.init(getApplicationContext());
         setContentView(R.layout.activity_login);
         username = findViewById(R.id.username);
         password = findViewById(R.id.password);
@@ -28,12 +32,14 @@ public class Login extends AppCompatActivity {
         error = findViewById(R.id.error);
         final Intent goToHomePage = new Intent(Login.this, HomePage.class);
         if (API.getInstance().isSessionAlreadyStarted()) {
+            finish();
             startActivity(goToHomePage);
+            return;
         } else {
             doLogin.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    user = username.getText().toString();
+                    user = username.getText().toString().trim();
                     pass = password.getText().toString();
                     if (API.getInstance().loginValidation(user, pass)) {
                         finish();
@@ -43,29 +49,30 @@ public class Login extends AppCompatActivity {
                         password.getBackground().setColorFilter(getResources().getColor(R.color.Transparent),
                                 PorterDuff.Mode.SRC_ATOP);
                         error.setVisibility(View.INVISIBLE);
+                        return;
                     } else if (user.equals("") && !pass.equals("")) {
-                        errorMessage="username required";
+                        errorMessage = "username required";
                         username.getBackground().setColorFilter(getResources().getColor(R.color.monkRed),
                                 PorterDuff.Mode.SRC_ATOP);
                         password.getBackground().setColorFilter(getResources().getColor(R.color.Transparent),
                                 PorterDuff.Mode.SRC_ATOP);
                         error.setVisibility(View.VISIBLE);
                     } else if (pass.equals("") && !user.equals("")) {
-                        errorMessage="password required";
+                        errorMessage = "password required";
                         password.getBackground().setColorFilter(getResources().getColor(R.color.monkRed),
                                 PorterDuff.Mode.SRC_ATOP);
                         username.getBackground().setColorFilter(getResources().getColor(R.color.Transparent),
                                 PorterDuff.Mode.SRC_ATOP);
                         error.setVisibility(View.VISIBLE);
                     } else if (user.equals("") && pass.equals("")) {
-                        errorMessage="username and password required";
+                        errorMessage = "username and password required";
                         username.getBackground().setColorFilter(getResources().getColor(R.color.monkRed),
                                 PorterDuff.Mode.SRC_ATOP);
                         password.getBackground().setColorFilter(getResources().getColor(R.color.monkRed),
                                 PorterDuff.Mode.SRC_ATOP);
                         error.setVisibility(View.VISIBLE);
                     } else if (!API.getInstance().loginValidation(user, pass)) {
-                        errorMessage="Incorrect username or password ";
+                        errorMessage = "Incorrect username or password ";
                         username.getBackground().setColorFilter(getResources().getColor(R.color.monkRed),
                                 PorterDuff.Mode.SRC_ATOP);
                         password.getBackground().setColorFilter(getResources().getColor(R.color.monkRed),
@@ -76,6 +83,7 @@ public class Login extends AppCompatActivity {
                 }
 
             });
+            setVisible(true);
         }
     }
 }
