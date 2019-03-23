@@ -3,16 +3,18 @@ package com.example.domenico.Zarathustra.backend.api;
 import android.content.Context;
 import android.content.SharedPreferences;
 
+import static android.content.Context.MODE_PRIVATE;
+
 public class SharedPreferencesManager {
-    Context c;
-    public static void set(String name, String value, Context c) {
-        SharedPreferences sharedPref = context.getSharedPreferences(“utente", MODE_PRIVATE);
-                SharedPreferences.Editor editor = sharedPref.edit();
-        editor.putString("nome", utente.getNome());
-        editor.putString("cognome", utente.getCognome());
-        editor.putInt("altezza", utente.getAltezza());
-        editor.putFloat("peso", utente.getPeso());
-        editor.putBoolean("maggiorenne", utente.isMaggiorenne());
+    private static Context c;
+
+    public static void init(Context c) {
+        SharedPreferencesManager.c = c;
+    }
+    public static void set(String name, String value) {
+        SharedPreferences sharedPref = c.getSharedPreferences("utente", MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedPref.edit();
+        editor.putString(name, value);
         editor.apply();
     }
     public static String get (String name){
