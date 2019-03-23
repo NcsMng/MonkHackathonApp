@@ -3,11 +3,11 @@ package com.example.domenico.Zarathustra;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
-public class HomePageRecycleView extends AppCompatActivity {
+public class HomePageRecycleViewRow extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_home_page_recycle_view);
+        setContentView(R.layout.activity_home_page_recycle_view_row);
     }
 }
