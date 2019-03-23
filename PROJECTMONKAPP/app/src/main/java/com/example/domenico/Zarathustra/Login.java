@@ -33,7 +33,7 @@ public class Login extends AppCompatActivity {
             doLogin.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    user = username.getText().toString();
+                    user = username.getText().toString().trim();
                     pass = password.getText().toString();
                     if (API.getInstance().loginValidation(user, pass)) {
                         finish();
