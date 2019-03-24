@@ -32,13 +32,13 @@
         app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
-        android:id="@+id/dateTime"
+        android:id="@+id/date_time_text"
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:layout_marginStart="8dp"
         android:layout_marginBottom="348dp"
         android:gravity="center"
-        android:text="Content"
+        android:text="Datetime"
         android:textSize="25sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
@@ -103,7 +103,7 @@
         android:layout_marginBottom="8dp"
         android:background="@color/white"
         android:scaleType="fitCenter"
-        android:src="@drawable/buttonToAdd"
+        android:src="@drawable/button_to_add"
         app:layout_constraintBottom_toBottomOf="@+id/include4"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.495"

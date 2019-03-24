@@ -19,8 +19,6 @@ import android.view.ViewGroup;
 
 import android.widget.TextView;
 
-import com.example.domenico.monkapp2k19.R;
-
 public class Main2Activity extends AppCompatActivity {
 
     /**

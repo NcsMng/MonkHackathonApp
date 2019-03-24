@@ -60,7 +60,7 @@
         android:layout_marginBottom="8dp"
         android:background="@color/white"
         android:scaleType="fitCenter"
-        android:src="@drawable/buttonToAdd"
+        android:src="@drawable/button_to_add"
         app:layout_constraintBottom_toBottomOf="@+id/include4"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
