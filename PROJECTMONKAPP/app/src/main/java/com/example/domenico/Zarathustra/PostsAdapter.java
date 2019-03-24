@@ -1,4 +1,4 @@
-/*package com.example.domenico.Zarathustra;
+package com.example.domenico.Zarathustra;
 
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
@@ -22,13 +22,15 @@ public class PostsAdapter extends RecyclerView.Adapter<PostsViewHolder> {
     @Override
     public void onBindViewHolder(@NonNull PostsViewHolder PostsViewHolder, int i) {
         // recupera i dati per quella posizione
-        int imagepath = posts.get(i).getAuthor().getImageId();
+        int imagepath = posts.get(i).API.getAuthor().getImageId();
         String fullname = "" + posts.get(i).getAuthor().getName() + posts.get(i).getAuthor().getSurname();
         String content = posts.get(i).getContent();
         String title = posts.get(i).getTitle();
-        String author = "" + posts.get(i).getAuthor().getName() + posts.get(i).getAuthor().getSurname();
-        //PostsViewHolder.
-        //PostsViewHolder.colore.setBackgroundResource(colore);
+        PostsViewHolder.profileImage.setImageResource(imagepath);
+        PostsViewHolder.content.setText(content);
+        PostsViewHolder.titolo.setText(title);
+        PostsViewHolder.fullname.setText(fullname);
+
     }
 
     @Override
@@ -36,4 +38,3 @@ public class PostsAdapter extends RecyclerView.Adapter<PostsViewHolder> {
         return 0;
     }
 }
-*/
