@@ -1,4 +1,4 @@
-package com.example.mappa3;
+package com.example.domenico.Zarathustra;
 
 import android.content.Context;
 import android.os.Handler;

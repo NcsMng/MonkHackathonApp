@@ -1,4 +1,4 @@
-package com.example.domenico.Zarathustra.backend.server.tables.user;
+package com.example.domenico.Zarathustra.backend.server;
 
 import java.io.Serializable;
 import java.nio.charset.StandardCharsets;

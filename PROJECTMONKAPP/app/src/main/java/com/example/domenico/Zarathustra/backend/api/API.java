@@ -2,17 +2,17 @@ package com.example.domenico.Zarathustra.backend.api;
 
 import android.content.Context;
 
-import com.example.domenico.Zarathustra.backend.api.Connection.Request;
-import com.example.domenico.Zarathustra.backend.api.Connection.RequestType;
-import com.example.domenico.Zarathustra.backend.api.Connection.Response;
+import com.example.domenico.Zarathustra.backend.server.Request;
+import com.example.domenico.Zarathustra.backend.server.RequestType;
+import com.example.domenico.Zarathustra.backend.server.Response;
 import com.example.domenico.Zarathustra.backend.server.DB;
 import com.example.domenico.Zarathustra.backend.server.tables.AlertPost;
 import com.example.domenico.Zarathustra.backend.server.tables.EventPost;
 import com.example.domenico.Zarathustra.backend.server.tables.Post;
 import com.example.domenico.Zarathustra.backend.server.tables.SuggestionPost;
 import com.example.domenico.Zarathustra.backend.server.tables.TextPost;
-import com.example.domenico.Zarathustra.backend.server.tables.user.User;
-import com.example.domenico.Zarathustra.backend.server.tables.user.Password;
+import com.example.domenico.Zarathustra.backend.server.User;
+import com.example.domenico.Zarathustra.backend.server.Password;
 
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
@@ -24,7 +24,7 @@ import java.util.Date;
 import java.util.List;
 
 public class API {
-    private final String serverIP = "192.168.3.248";
+    private final String serverIP = "192.168.3.161";
 	private static API instance;
 	static Context context;
 	DB runningDB;
@@ -57,12 +57,13 @@ public class API {
         ObjectInputStream in;
 
         try{
-            client = new Socket("192.168.3.248",1234);
+            client = new Socket(serverIP,1234);
             in = new ObjectInputStream(client.getInputStream());
             out = new ObjectOutputStream(client.getOutputStream());
 
-            Request request = new Request(-1, RequestType.LOGIN,new Serializable[]{new User(-1,user,new Password(pw),null,null,0)});
+            Request request = new Request(-1, RequestType.LOGIN,new Serializable[]{new User(-1,user,(pw),null,null,0)});
             out.writeObject(request);
+            out.flush();
 
             Response response = ((Response)in.readObject());
             if(response.isError())return false;
@@ -90,7 +91,7 @@ public class API {
             ObjectInputStream in;
 
             try {
-                client = new Socket("192.168.3.248", 1234);
+                client = new Socket(serverIP, 1234);
                 in = new ObjectInputStream(client.getInputStream());
                 out = new ObjectOutputStream(client.getOutputStream());
                 Request request = new Request(getSessionId(),RequestType.GET_DB,null);
@@ -163,7 +164,7 @@ public class API {
         ObjectOutputStream out;
         ObjectInputStream in;
         try {
-            client = new Socket("192.168.3.248", 1234);
+            client = new Socket(serverIP, 1234);
             in = new ObjectInputStream(client.getInputStream());
             out = new ObjectOutputStream(client.getOutputStream());
             Request request = new Request(getSessionId(),RequestType.UPDATE_DB,new Serializable[]{runningDB});

@@ -2,6 +2,7 @@ package com.example.domenico.Zarathustra;
 
 import android.content.Intent;
 import android.graphics.PorterDuff;
+import android.os.StrictMode;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -23,6 +24,8 @@ public class Login extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
+        StrictMode.setThreadPolicy(policy);
         setVisible(false);
         API.init(this);
         SharedPreferencesManager.init(getApplicationContext());
@@ -31,6 +34,8 @@ public class Login extends AppCompatActivity {
         password = findViewById(R.id.password);
         doLogin = findViewById(R.id.login_button);
         error = findViewById(R.id.error);
+        getSupportActionBar().hide();
+
         Beacon[] beacons = {
                 new Beacon ("62263", new PercentagePosition (0.05, 0.05)),
                 new Beacon ("6146", new PercentagePosition (0.02, 0.22)),

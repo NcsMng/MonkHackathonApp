@@ -1,4 +1,4 @@
-package com.example.domenico.Zarathustra.backend.api.Connection;
+package com.example.domenico.Zarathustra.backend.server;
 
 import java.io.Serializable;
 
