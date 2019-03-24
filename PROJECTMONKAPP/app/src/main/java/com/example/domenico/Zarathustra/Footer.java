@@ -4,21 +4,20 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.widget.ImageButton;
 import android.widget.LinearLayout;
 
 import com.example.domenico.Zarathustra.backend.api.API;
 
-public class HomePage extends AppCompatActivity {
-
+public class Footer extends AppCompatActivity {
+    ImageButton home, mappa, forum;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_homepage);
-        RecyclerView recyclerView = findViewById(R.id.recyclerview);
-        PostsAdapter adapter = new PostsAdapter(this, API.getInstance().getAlertPosts());
-        recyclerView.setAdapter(adapter);
-        LinearLayoutManager manager = new LinearLayoutManager(this);
-        recyclerView.setLayoutManager(manager);
-    }
+        setContentView(R.layout.monk_footer);
+        home = findViewById(R.id.homeButton);
+        mappa= findViewById(R.id.mappaButton);
+        forum= findViewById(R.id.forumButton);
 
+    }
 }
