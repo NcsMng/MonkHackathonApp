@@ -17,8 +17,6 @@ import org.altbeacon.beacon.*;
 import java.util.Timer;
 import java.util.TimerTask;
 
-//import static com.example.mappa3.R.id.relativeZoom;
-
 public class MappaActivity extends AppCompatActivity implements View.OnClickListener {
     int size = 10;
     public Button click0,click1,click2,click3,click4,click5,click6,click7,click8;
@@ -28,8 +26,11 @@ public class MappaActivity extends AppCompatActivity implements View.OnClickList
     Runnable repeatTask = new Runnable () {
         @Override
         public void run() {
-            //TODO: add beacons position
-            handler.postDelayed (this,5000);
+            PercentagePosition percentagePosition = BeaconInfo.getPosition();
+            if(percentagePosition != null) {
+                setPos(percentagePosition.x, percentagePosition.y);
+            }
+            handler.postDelayed (this,1000);
         }
     };
 
@@ -56,26 +57,25 @@ public class MappaActivity extends AppCompatActivity implements View.OnClickList
         click7.setOnClickListener (this);
         click8.setOnClickListener (this);
         imageTrack = findViewById (R.id.track);
-        setPos ( 0.25f,0.75f);
 
-        handler.postDelayed (repeatTask,5000) ;
+        getSupportActionBar().hide();
 
-
-
+        handler.postDelayed (repeatTask,1000) ;
+        Footer.bind(this);
     }
 
     @Override
     protected void onDestroy() {
         super.onDestroy ();
-        handler.removeCallbacks (repeatTask);
+        //handler.removeCallbacks (repeatTask);
     }
 
-    public void setPos(float x, float y) {
+    public void setPos(double x, double y) {
         ConstraintLayout cl = findViewById(R.id.relativeZoom);
         ConstraintSet constraintSet = new ConstraintSet ();
         constraintSet.clone (cl);
-        constraintSet.setHorizontalBias(imageTrack.getId (),x);
-        constraintSet.setVerticalBias(imageTrack.getId (), y);
+        constraintSet.setHorizontalBias(imageTrack.getId (), (float) x);
+        constraintSet.setVerticalBias(imageTrack.getId (), (float) y);
         constraintSet.applyTo (cl);
 
     }

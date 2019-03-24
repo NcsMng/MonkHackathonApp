@@ -97,7 +97,7 @@ public class API {
                 Request request = new Request(getSessionId(),RequestType.GET_DB,null);
                 out.writeObject(request);
                 Response response = (Response)in.readObject();
-                runningDB = (DB)response.getResponse()[1];
+                runningDB = (DB)response.getResponse()[0];
                 lastUpdate = Calendar.getInstance().getTime();
             }catch(Exception e){
                 e.printStackTrace();

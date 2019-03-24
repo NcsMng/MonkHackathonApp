@@ -2,6 +2,7 @@ package com.example.domenico.Zarathustra;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.CardView;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.widget.LinearLayout;
@@ -19,6 +20,8 @@ public class HomePage extends AppCompatActivity {
         recyclerView.setAdapter(adapter);
         LinearLayoutManager manager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(manager);
+        getSupportActionBar().hide();
+        Footer.bind(this);
     }
 
 }

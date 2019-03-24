@@ -24,18 +24,24 @@ public class Footer {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent (activity, HomePage.class );
+                activity.startActivity(intent);
+                activity.finish();
             }
         });
         mappa.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent (activity, MappaActivity.class);
+                activity.startActivity(intent);
+                activity.finish();
             }
         });
         forum.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent (activity, Message_Wall.class);
+                activity.startActivity(intent);
+                activity.finish();
             }
         });
     }

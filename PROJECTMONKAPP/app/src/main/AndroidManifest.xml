@@ -12,13 +12,15 @@
         android:theme="@style/AppTheme">
         <activity
             android:name=".Main2Activity"
-            android:label="Main2Activity"
+            android:label="@string/title_activity_main2"
+
             android:theme="@style/AppTheme.NoActionBar"></activity>
         <activity android:name=".NormalPost" />
         <activity android:name=".Event" />
         <activity android:name=".AddAlert" />
         <activity android:name=".Message_Wall" />
         <activity android:name=".HomePage" />
+        <activity android:name=".MappaActivity"/>
         <activity android:name=".Login">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -27,4 +29,5 @@
             </intent-filter>
         </activity>
     </application>
+
 </manifest>
