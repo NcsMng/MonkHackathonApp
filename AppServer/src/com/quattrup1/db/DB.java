@@ -11,34 +11,37 @@ import java.util.ArrayList;
 
 public class DB implements Serializable {
 
-	private static final long serialVersionUID = 5185343382628581119L;
+    private static final long serialVersionUID = 5185343382628581119L;
 
-	static public ArrayList<AlertPost> tableAlertPost = new ArrayList<>();
-	static public ArrayList<TextPost> tableTextPost = new ArrayList<>();
-	static public ArrayList<SuggestionPost> tableSuggestionPost = new ArrayList<>();
-	static public ArrayList<EventPost> tableEventPost = new ArrayList<>();
-	static public ArrayList<User> tableUser = new ArrayList<>();
+    public ArrayList<AlertPost> tableAlertPost = new ArrayList<>();
+    public ArrayList<TextPost> tableTextPost = new ArrayList<>();
+    public ArrayList<SuggestionPost> tableSuggestionPost = new ArrayList<>();
+    public ArrayList<EventPost> tableEventPost = new ArrayList<>();
+    public ArrayList<User> tableUser = new ArrayList<>();
 
-	public static void add (AlertPost alertPost) {
-		tableAlertPost.add(alertPost);
-	}
-	public static void add (TextPost TextPost) {
-		tableTextPost.add(TextPost);
-	}
+    public DB() {
+        for (int i = 0; i < 5; i++)
+            tableUser.add(new User(-1, "utente" + i, new Password("password" + i), "ciao" + i, null, i++));
+    }
 
-	public static void add (SuggestionPost suggestionPost) {
-		tableSuggestionPost.add(suggestionPost);
-	}
+    public void add(AlertPost alertPost) {
+        tableAlertPost.add(alertPost);
+    }
 
-	public static void add(EventPost eventPost) {
-		tableEventPost.add(eventPost);
-	}
-	public static void add(User user) {
-		tableUser.add(user);
-	}
+    public void add(TextPost TextPost) {
+        tableTextPost.add(TextPost);
+    }
 
+    public void add(SuggestionPost suggestionPost) {
+        tableSuggestionPost.add(suggestionPost);
+    }
 
+    public void add(EventPost eventPost) {
+        tableEventPost.add(eventPost);
+    }
 
-	public static final User[] users = {new User(-1 , "admin", new Password("password"), "Ciao Ciao", null, 0)};
-	
+    public void add(User user) {
+        tableUser.add(user);
+    }
+
 }

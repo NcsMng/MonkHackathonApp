@@ -5,22 +5,27 @@ import android.content.Context;
 import com.example.domenico.Zarathustra.backend.api.Connection.Request;
 import com.example.domenico.Zarathustra.backend.api.Connection.RequestType;
 import com.example.domenico.Zarathustra.backend.api.Connection.Response;
+import com.example.domenico.Zarathustra.backend.server.DB;
 import com.example.domenico.Zarathustra.backend.server.tables.AlertPost;
+import com.example.domenico.Zarathustra.backend.server.tables.EventPost;
 import com.example.domenico.Zarathustra.backend.server.tables.Post;
-import com.example.domenico.Zarathustra.backend.server.tables.PostDB;
+import com.example.domenico.Zarathustra.backend.server.tables.SuggestionPost;
+import com.example.domenico.Zarathustra.backend.server.tables.TextPost;
 import com.example.domenico.Zarathustra.backend.server.tables.user.User;
 import com.example.domenico.Zarathustra.backend.server.tables.user.Password;
 
-import java.io.ObjectInput;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.io.Serializable;
 import java.net.Socket;
-import java.util.Arrays;
+import java.util.ArrayList;
+import java.util.List;
 
 public class API {
+    private final String serverIP = "192.168.3.248";
 	private static API instance;
 	static Context context;
+	DB runningDB;
 	//private BackEndMap backEndMap;
 
 	private API() {
@@ -74,18 +79,93 @@ public class API {
 		SharedPreferencesManager.set("sessionId", "-1");
 	}
 
-	public com.example.domenico.Zarathustra.backend.server.tables.User getUser(long id){
-		return PostDB.getInstance(context).getUserDAO().getUser(id);
-	}
+	private void getDB(){
+	    if(runningDB==null){
+            Socket client;
+            ObjectOutputStream out;
+            ObjectInputStream in;
 
-	public Post[] getAlertAndEventPosts(){
-		PostDB db = PostDB.getInstance(context);
-        /*AlertPost[] alerts = Arrays.sort(db.getAlertPostDAO().getAlertPosts(), a ->{
+            try {
+                client = new Socket("192.168.3.248", 1234);
+                in = new ObjectInputStream(client.getInputStream());
+                out = new ObjectOutputStream(client.getOutputStream());
+                Request request = new Request(getSessionId(),RequestType.GET_DB,null);
+                out.writeObject(request);
+                Response response = (Response)in.readObject();
+                runningDB = (DB)response.getResponse()[1];
+            }catch(Exception e){
+                e.printStackTrace();
+            }
+        }
+    }
 
-        });*/
-		Post[] arr = new Post[10];
-		return arr;
-	}
+    public List<Post> getAlertPosts(){
+	    return runningDB.tableAlertPost;
+    }
 
+    public List<Post> getTextPosts(){
+        return runningDB.tableTextPost;
+    }
 
+    public List<Post> getSuggestionPosts(){
+        return runningDB.tableSuggestionPost;
+    }
+
+    public List<Post> getEventPosts(){
+        return runningDB.tableEventPost;
+    }
+
+    public List<Post> getAllPosts(){
+	    List<Post> a = new ArrayList<>();
+	    for(Post p:getAlertPosts()){
+	        a.add(p);
+        }
+        for(Post p:getEventPosts()){
+            a.add(p);
+        }
+        for(Post p:getSuggestionPosts()){
+            a.add(p);
+        }
+        for(Post p:getTextPosts()){
+            a.add(p);
+        }
+        return a;
+    }
+
+    private long getSessionId(){
+	    return Long.parseLong(SharedPreferencesManager.get("sessionId","-1"));
+    }
+
+    public void addPost(AlertPost p){
+        runningDB.add(p);
+        updateDB();
+    }
+    public void addPost(EventPost p){
+        runningDB.add(p);
+        updateDB();
+    }
+    public void addPost(TextPost p){
+        runningDB.add(p);updateDB();
+
+    }
+    public void addPost(SuggestionPost p){
+        runningDB.add(p);
+        updateDB();
+    }
+
+    private void updateDB(){
+        Socket client;
+        ObjectOutputStream out;
+        ObjectInputStream in;
+        try {
+            client = new Socket("192.168.3.248", 1234);
+            in = new ObjectInputStream(client.getInputStream());
+            out = new ObjectOutputStream(client.getOutputStream());
+            Request request = new Request(getSessionId(),RequestType.UPDATE_DB,new Serializable[]{runningDB});
+            out.writeObject(request);
+            Response response = (Response)in.readObject();
+        }catch(Exception e){
+            e.printStackTrace();
+        }
+    }
 }
