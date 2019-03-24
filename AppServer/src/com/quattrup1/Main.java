@@ -21,6 +21,8 @@ public class Main {
 		switch (request.getType()) {
 			case LOGIN:
 				return new Response(false, new Serializable[] {Sessions.getInstance().login((User) request.getArg(0))});
+			case GET_DB:
+				return new Response(false, new Serializable[]{});
 			default:
 				return new Response(true, new Serializable[] {"Unsupported method."});
 		}

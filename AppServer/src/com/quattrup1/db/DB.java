@@ -6,9 +6,13 @@ import com.quattrup1.db.tables.SuggestionPost;
 import com.quattrup1.db.tables.TextPost;
 import com.quattrup1.usermanager.Password;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public class DB {
+public class DB implements Serializable {
+
+	private static final long serialVersionUID = 5185343382628581119L;
+
 	static public ArrayList<AlertPost> tableAlertPost = new ArrayList<>();
 	static public ArrayList<TextPost> tableTextPost = new ArrayList<>();
 	static public ArrayList<SuggestionPost> tableSuggestionPost = new ArrayList<>();

@@ -20,4 +20,8 @@ public class SharedPreferencesManager {
     public static String get (String name){
         return c.getSharedPreferences("prefs", MODE_PRIVATE).getString(name, null);
     }
+
+    public static String get (String name, String defVal){
+        return c.getSharedPreferences("prefs", MODE_PRIVATE).getString(name, defVal);
+    }
 }
