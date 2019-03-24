@@ -9,6 +9,7 @@ import java.util.StringTokenizer;
 
 @Entity(foreignKeys = @ForeignKey(entity = User.class,parentColumns = "id",childColumns = "authorId",onDelete = ForeignKey.CASCADE))
 public class SuggestionPost extends Post{
+    private static final long serialVersionUID = 4807163159L;
 	long[] likes;
 	int filledTo=0;
 

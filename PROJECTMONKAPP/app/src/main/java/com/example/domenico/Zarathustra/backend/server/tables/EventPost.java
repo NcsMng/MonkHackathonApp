@@ -8,6 +8,7 @@ import java.util.Date;
 
 @Entity(foreignKeys = @ForeignKey(entity = User.class,parentColumns = "id",childColumns = "authorId",onDelete = ForeignKey.CASCADE))
 public class EventPost extends Post{
+    private static final long serialVersionUID = 4428319740L;
 	private long date;
 
     public void setDate(long date) {
