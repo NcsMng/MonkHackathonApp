@@ -15,7 +15,7 @@ public class HomePage extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_homepage);
         RecyclerView recyclerView = findViewById(R.id.recyclerview);
-        PostsAdapter adapter = new PostsAdapter(this, API.getInstance());
+        PostsAdapter adapter = new PostsAdapter(this, API.getInstance().getAlertPosts());
         recyclerView.setAdapter(adapter);
         LinearLayoutManager manager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(manager);

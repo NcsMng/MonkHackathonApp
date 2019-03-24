@@ -1,5 +1,6 @@
 package com.example.domenico.Zarathustra;
 
+import android.content.Context;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -14,6 +15,10 @@ import com.example.domenico.Zarathustra.backend.server.tables.Post;
 public class PostsAdapter extends RecyclerView.Adapter<PostsViewHolder> {
     private List<Post> posts;
     private LayoutInflater inflater;
+    public PostsAdapter(Context c, List<Post> posts) {
+        this.posts = posts;
+        inflater = LayoutInflater.from(c);
+    }
     @NonNull
     @Override
     public PostsViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
@@ -24,8 +29,8 @@ public class PostsAdapter extends RecyclerView.Adapter<PostsViewHolder> {
     @Override
     public void onBindViewHolder(@NonNull PostsViewHolder PostsViewHolder, int i) {
         // recupera i dati per quella posizione
-        int imagepath = API.getInstance().getUser(posts.get(i).getAuthorId()).getImageId();
-        String fullname = ""+ API.getInstance().getUser(posts.get(i).getAuthorId()).getName() + API.getInstance().getUser(posts.get(i).getAuthorId()).getSurname();
+        int imagepath = posts.get(i).getAuthor().getImageId();
+        String fullname = posts.get(i).getAuthor().getName();
         String content = posts.get(i).getContent();
         String title = posts.get(i).getTitle();
         PostsViewHolder.profileImage.setImageResource(imagepath);

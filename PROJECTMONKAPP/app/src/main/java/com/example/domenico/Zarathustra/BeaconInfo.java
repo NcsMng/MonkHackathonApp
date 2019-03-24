@@ -1,5 +1,4 @@
-package com.example.beacon;
-
+package com.example.domenico.Zarathustra;
 import android.Manifest;
 import android.content.Context;
 import android.content.DialogInterface;
@@ -30,9 +29,9 @@ public class BeaconInfo implements BeaconConsumer {
     private static Context context;
     private static BeaconManager beaconManager;
     private static PercentagePosition nearestPercentagePosition;
-    private static com.example.beacon.Beacon[] beacons;
+    private static com.example.domenico.Zarathustra.Beacon[] beacons;
 
-    public static void init(final AppCompatActivity context, com.example.beacon.Beacon[] beacons) {
+    public static void init(final AppCompatActivity context, com.example.domenico.Zarathustra.Beacon[] beacons) {
         BeaconInfo.beacons = beacons;
         BeaconInfo.context = context;
         beaconManager = BeaconManager.getInstanceForApplication(context);
@@ -75,7 +74,7 @@ public class BeaconInfo implements BeaconConsumer {
                             id = beacon.getId3 ().toString ();
                         }
                     }
-                    for(com.example.beacon.Beacon b : BeaconInfo.beacons) {
+                    for(com.example.domenico.Zarathustra.Beacon b : BeaconInfo.beacons) {
                         if(b.id.equals (id))  {
                             nearestPercentagePosition = b.percentagePosition;
                         }

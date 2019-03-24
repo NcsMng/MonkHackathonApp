@@ -20,22 +20,30 @@
         app:layout_constraintVertical_bias="1.0"
         tools:layout_editor_absoluteX="0dp" />
 
-    <TextView
+    <EditText
         android:id="@+id/content"
         android:layout_width="match_parent"
         android:layout_height="50dp"
-        android:layout_marginStart="0dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginBottom="480dp"
+        android:layout_marginBottom="428dp"
         android:gravity="center"
         android:text="Content"
         android:textSize="25sp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView"
-        app:layout_constraintVertical_bias="0.061" />
+        app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
+        android:id="@+id/date_time_text"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginBottom="348dp"
+        android:gravity="center"
+        android:text="Datetime"
+        android:textSize="25sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <EditText
         android:id="@+id/titolo"
         android:layout_width="match_parent"
         android:layout_height="50dp"
@@ -49,7 +57,7 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/include3"
-        app:layout_constraintVertical_bias="0.359" />
+        app:layout_constraintVertical_bias="0.187" />
 
     <ImageButton
         android:id="@+id/addDay"
@@ -84,5 +92,22 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.657" />
+
+    <ImageButton
+        android:id="@+id/addEvent"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="200dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
+        android:background="@color/white"
+        android:scaleType="fitCenter"
+        android:src="@drawable/button_to_add"
+        app:layout_constraintBottom_toBottomOf="@+id/include4"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.495"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/content" />
 
 </android.support.constraint.ConstraintLayout>

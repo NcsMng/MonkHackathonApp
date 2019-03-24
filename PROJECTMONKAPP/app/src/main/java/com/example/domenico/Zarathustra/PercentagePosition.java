@@ -1,4 +1,4 @@
-package com.example.beacon;
+package com.example.domenico.Zarathustra;
 
 public class PercentagePosition {
     public final double x, y;

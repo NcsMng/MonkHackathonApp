@@ -1,4 +1,4 @@
-package com.example.beacon;
+package com.example.domenico.Zarathustra;
 
 public class BeaconData {
     public final double distance;

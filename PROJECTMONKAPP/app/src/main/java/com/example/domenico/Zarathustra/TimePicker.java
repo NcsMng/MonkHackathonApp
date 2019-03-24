@@ -1,4 +1,5 @@
 package com.example.domenico.Zarathustra;
+
 import android.app.Dialog;
 import android.app.TimePickerDialog;
 import android.os.Bundle;
@@ -17,4 +18,6 @@ public class TimePicker extends DialogFragment {
         int minute = c.get(Calendar.MINUTE);
         return new TimePickerDialog(getActivity(),(TimePickerDialog.OnTimeSetListener)getActivity(),hour,minute,android.text.format.DateFormat.is24HourFormat(getActivity()));
     }
+
+
 }
