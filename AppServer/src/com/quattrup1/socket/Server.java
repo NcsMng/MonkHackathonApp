@@ -1,7 +1,7 @@
 package com.quattrup1.socket;
 
 import com.quattrup1.interfaces.RequestHandler;
-import com.quattrup1.socket.request.Request;
+import com.example.domenico.Zarathustra.backend.server.Request;
 
 import java.io.*;
 import java.net.ServerSocket;

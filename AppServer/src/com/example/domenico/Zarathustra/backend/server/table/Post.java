@@ -1,5 +1,5 @@
-package com.quattrup1.db.tables;
-import com.quattrup1.db.User;
+package com.example.domenico.Zarathustra.backend.server.table;
+import com.example.domenico.Zarathustra.backend.server.User;
 
 import java.io.Serializable;
 import java.util.Date;

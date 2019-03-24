@@ -1,6 +1,6 @@
-package com.quattrup1.db.tables;
+package com.example.domenico.Zarathustra.backend.server.table;
 
-import com.quattrup1.db.User;
+import com.example.domenico.Zarathustra.backend.server.User;
 
 import java.util.ArrayList;
 import java.util.Date;

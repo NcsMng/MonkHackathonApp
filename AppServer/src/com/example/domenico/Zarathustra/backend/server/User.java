@@ -1,6 +1,4 @@
-package com.quattrup1.db;
-
-import com.quattrup1.usermanager.Password;
+package com.example.domenico.Zarathustra.backend.server;
 
 import java.io.Serializable;
 
@@ -8,12 +6,12 @@ public class User implements Serializable {
 	private static final long serialVersionUID = 3950025715440442732L;
 	private long sessionId;
 	private String username;
-	private Password password;
+	private String password;
 	private String name;
 	private Position position;
 	private int imageId;
 	
-	public User(long sessionId, String username, Password password, String name, Position position, int imageId) {
+	public User(long sessionId, String username, String password, String name, Position position, int imageId) {
 		this.sessionId = sessionId;
 		this.username = username;
 		this.password = password;
@@ -24,7 +22,7 @@ public class User implements Serializable {
 	public String getUsername() {
 		return username;
 	}
-	public Password getPassword() {
+	public String getPassword() {
 		return password;
 	}
 	public String getName() {

@@ -1,9 +1,9 @@
-package com.quattrup1.db;
+package com.example.domenico.Zarathustra.backend.server;
 
-import com.quattrup1.db.tables.AlertPost;
-import com.quattrup1.db.tables.EventPost;
-import com.quattrup1.db.tables.SuggestionPost;
-import com.quattrup1.db.tables.TextPost;
+import com.example.domenico.Zarathustra.backend.server.table.AlertPost;
+import com.example.domenico.Zarathustra.backend.server.table.EventPost;
+import com.example.domenico.Zarathustra.backend.server.table.SuggestionPost;
+import com.example.domenico.Zarathustra.backend.server.table.TextPost;
 import com.quattrup1.usermanager.Password;
 
 import java.io.Serializable;
@@ -21,7 +21,7 @@ public class DB implements Serializable {
 
     public DB() {
         for (int i = 0; i < 5; i++)
-            tableUser.add(new User(-1, "utente" + i, new Password("password" + i), "ciao" + i, null, i++));
+            tableUser.add(new User(-1, "utente" + i, "password" + i, "ciao" + i, null, i++));
     }
 
     public void add(AlertPost alertPost) {

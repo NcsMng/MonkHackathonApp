@@ -1,4 +1,4 @@
-package com.quattrup1.socket;
+package com.example.domenico.Zarathustra.backend.server;
 
 import java.io.Serializable;
 

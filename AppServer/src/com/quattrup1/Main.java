@@ -1,10 +1,10 @@
 package com.quattrup1;
 
-import com.quattrup1.db.DB;
-import com.quattrup1.db.User;
-import com.quattrup1.socket.Response;
+import com.example.domenico.Zarathustra.backend.server.DB;
+import com.example.domenico.Zarathustra.backend.server.User;
+import com.example.domenico.Zarathustra.backend.server.Response;
 import com.quattrup1.socket.Server;
-import com.quattrup1.socket.request.Request;
+import com.example.domenico.Zarathustra.backend.server.Request;
 import com.quattrup1.usermanager.Sessions;
 
 import java.io.*;
