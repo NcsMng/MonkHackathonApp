@@ -1,5 +1,6 @@
 package com.quattrup1.usermanager;
 
+import com.quattrup1.Main;
 import com.quattrup1.db.DB;
 import com.quattrup1.db.User;
 
@@ -16,7 +17,7 @@ public class Sessions {
 			sessions = new Sessions();
 		return sessions;
 	}
-	
+
 	private Set<User> sessionIds;
 	private Set<User> loggedUsers;
 	public boolean isLoggedIn(long sessionId) {
@@ -25,7 +26,7 @@ public class Sessions {
 	public long login(User user) {
 		long sessionId = loggedUsers.stream().filter(user::equals).map(User::getSessionId).findAny().orElse(-1L);
 		if(sessionId == -1)
-			if(Arrays.asList(DB.users).contains(user)) {
+			if(Arrays.asList(Main.runningDB).contains(user)) {
 				sessionId = Math.abs(new Random().nextLong());
 			}
 		return sessionId;

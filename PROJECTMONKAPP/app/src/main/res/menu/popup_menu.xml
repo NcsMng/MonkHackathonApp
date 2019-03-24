@@ -2,8 +2,8 @@
 
     <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <item android:title="Add Contact" android:id="@+id/item1"> </item>
-
-    <item android:title="Informations" android:id="@+id/item2"> </item>
+    <item android:title="Warning" android:id="@+id/warning"> </item>
+    <item android:title="Event" android:id="@+id/event"> </item>
+    <item android:title="Suggestions" android:id="@+id/suggestion"> </item>
 
 </menu>

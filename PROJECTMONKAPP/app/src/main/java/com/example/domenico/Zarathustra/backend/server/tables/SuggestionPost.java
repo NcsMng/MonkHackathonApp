@@ -1,87 +1,34 @@
 package com.example.domenico.Zarathustra.backend.server.tables;
 
-import android.arch.persistence.room.Entity;
-import android.arch.persistence.room.ForeignKey;
-import android.arch.persistence.room.Ignore;
-import android.arch.persistence.room.TypeConverter;
 
-import java.util.StringTokenizer;
+import com.example.domenico.Zarathustra.backend.server.tables.user.User;
 
-@Entity(foreignKeys = @ForeignKey(entity = User.class,parentColumns = "id",childColumns = "authorId",onDelete = ForeignKey.CASCADE))
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
+
 public class SuggestionPost extends Post{
-    private static final long serialVersionUID = 4807163159L;
-	long[] likes;
-	int filledTo=0;
+    private static final long serialVersionUID = 7403128913764235852L;
+	List<User> likes;
 
-	@Ignore
-	private static final int INCREASE_VALUE = 10;
-
-    public SuggestionPost(){}
-
-    @Ignore
-	public SuggestionPost(String title, long author, String content, long submittingDate){
+	public SuggestionPost(String title, User author, String content, Date submittingDate){
 		super(title, author, content, submittingDate);
-		likes = new long[INCREASE_VALUE];
-
+		likes = new ArrayList<>();
 	}
 
 	public void addLike(User liker){
 		if(!contains(liker)){
-			if(filledTo<likes.length){
-			    likes[filledTo++]=liker.getId();
-            }else{
-			    long[] tmp = new long[likes.length+INCREASE_VALUE];
-			    for(int i = 0;i<likes.length;i++){
-			        tmp[i]=likes[i];
-                }
-                likes=tmp;
-			    likes[filledTo++]=liker.getId();
-            }
+			likes.add(liker);
 		}
 	}
 
 	private boolean contains(User liker){
-		for(long i:likes)
-			if(i==liker.getId())
+		for(User i: likes)
+			if(i.equals(liker))
 				return true;
 		return false;
 	}
 
-	public int getLikesAmount(){ return filledTo;}
+	public int getLikesAmount(){ return likes.size();}
 
-    public long[] getLikes() {
-        return likes;
-    }
-
-
-    public int getFilledTo() {
-        return filledTo;
-    }
-
-    public void setFilledTo(int filledTo) {
-        this.filledTo = filledTo;
-    }
-
-    public void setLikes(long[] likes) {
-        this.likes = likes;
-    }
-
-    @TypeConverter
-    public String longArrayToString(long[] arr){
-        String s = "";
-        for(long l: arr){
-            s+=l+"/";
-        }
-        return s;
-    }
-
-    @TypeConverter
-    public long[] stringToLongArray(String s){
-        String[] longs = s.split("/");
-        long[] arr = new long[longs.length];
-        for(int i = 0 ;i<longs.length;i++){
-            arr[i]=Long.parseLong(longs[i]);
-        }
-        return arr;
-    }
 }
