@@ -24,6 +24,7 @@ public class Login extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setVisible(false);
+        API.init(this);
         SharedPreferencesManager.init(getApplicationContext());
         setContentView(R.layout.activity_login);
         username = findViewById(R.id.username);
