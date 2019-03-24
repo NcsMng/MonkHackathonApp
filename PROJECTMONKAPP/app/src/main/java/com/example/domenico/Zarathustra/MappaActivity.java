@@ -1,15 +1,37 @@
-package com.example.domenico.Zarathustra;
+package com.example.mappa3;
 
 import android.content.Context;
+import android.os.Handler;
+import android.support.constraint.ConstraintLayout;
+import android.support.constraint.ConstraintSet;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
+import android.webkit.WebView;
 import android.widget.Button;
+import android.widget.ImageView;
+
+import org.altbeacon.beacon.*;
+
+import java.util.Timer;
+import java.util.TimerTask;
+
+//import static com.example.mappa3.R.id.relativeZoom;
 
 public class MappaActivity extends AppCompatActivity implements View.OnClickListener {
     int size = 10;
     public Button click0,click1,click2,click3,click4,click5,click6,click7,click8;
     public Context c;
+    public ImageView imageTrack ;
+    public final Handler handler=new Handler ();
+    Runnable repeatTask = new Runnable () {
+        @Override
+        public void run() {
+            //TODO: add beacons position
+            handler.postDelayed (this,5000);
+        }
+    };
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,6 +55,28 @@ public class MappaActivity extends AppCompatActivity implements View.OnClickList
         click6.setOnClickListener (this);
         click7.setOnClickListener (this);
         click8.setOnClickListener (this);
+        imageTrack = findViewById (R.id.track);
+        setPos ( 0.25f,0.75f);
+
+        handler.postDelayed (repeatTask,5000) ;
+
+
+
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy ();
+        handler.removeCallbacks (repeatTask);
+    }
+
+    public void setPos(float x, float y) {
+        ConstraintLayout cl = findViewById(R.id.relativeZoom);
+        ConstraintSet constraintSet = new ConstraintSet ();
+        constraintSet.clone (cl);
+        constraintSet.setHorizontalBias(imageTrack.getId (),x);
+        constraintSet.setVerticalBias(imageTrack.getId (), y);
+        constraintSet.applyTo (cl);
 
     }
 
@@ -42,6 +86,8 @@ public class MappaActivity extends AppCompatActivity implements View.OnClickList
         if(b.getText().toString().equals("L")) {
             b.setText ("M");
         } else
+
             b.setText ("L");
     }
+
 }
