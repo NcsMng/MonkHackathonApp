@@ -2,11 +2,12 @@ package com.example.domenico.Zarathustra.backend.server.tables;
 
 import android.arch.persistence.room.PrimaryKey;
 
+import java.io.Serializable;
 import java.time.Instant;
 import java.util.Date;
 
 
-public abstract class Post{
+public abstract class Post implements Serializable {
     @PrimaryKey(autoGenerate = true)
     private long id;
 
