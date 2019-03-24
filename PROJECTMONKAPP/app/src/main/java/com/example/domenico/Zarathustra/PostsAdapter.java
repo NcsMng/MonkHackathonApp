@@ -22,7 +22,7 @@ public class PostsAdapter extends RecyclerView.Adapter<PostsViewHolder> {
     @Override
     public void onBindViewHolder(@NonNull PostsViewHolder PostsViewHolder, int i) {
         // recupera i dati per quella posizione
-        int imagepath = posts.get(i).getAuthor().getImageId();
+        int imagepath = posts.get(i).API.getAuthor().getImageId();
         String fullname = "" + posts.get(i).getAuthor().getName() + posts.get(i).getAuthor().getSurname();
         String content = posts.get(i).getContent();
         String title = posts.get(i).getTitle();
@@ -30,6 +30,7 @@ public class PostsAdapter extends RecyclerView.Adapter<PostsViewHolder> {
         PostsViewHolder.content.setText(content);
         PostsViewHolder.titolo.setText(title);
         PostsViewHolder.fullname.setText(fullname);
+
     }
 
     @Override
