@@ -1,6 +1,6 @@
 package com.example.domenico.Zarathustra.backend.server.tables;
 
-import com.example.domenico.Zarathustra.backend.server.tables.user.User;
+import com.example.domenico.Zarathustra.backend.server.User;
 
 import java.util.Date;
 

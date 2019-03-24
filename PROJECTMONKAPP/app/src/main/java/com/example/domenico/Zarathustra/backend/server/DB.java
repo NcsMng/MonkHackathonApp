@@ -5,8 +5,6 @@ import com.example.domenico.Zarathustra.backend.server.tables.EventPost;
 import com.example.domenico.Zarathustra.backend.server.tables.Post;
 import com.example.domenico.Zarathustra.backend.server.tables.SuggestionPost;
 import com.example.domenico.Zarathustra.backend.server.tables.TextPost;
-import com.example.domenico.Zarathustra.backend.server.tables.user.Password;
-import com.example.domenico.Zarathustra.backend.server.tables.user.User;
 
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -24,7 +22,7 @@ public class DB implements Serializable {
 
     public DB() {
         for (int i = 0; i < 5; i++)
-            tableUser.add(new User(-1, "utente" + i, new Password("password" + i), "ciao" + i, null, i++));
+            tableUser.add(new User(-1, "utente" + i, ("password" + i), "ciao" + i, null, i++));
     }
 
     public void add(AlertPost alertPost) {
