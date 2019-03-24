@@ -13,7 +13,6 @@
         <activity
             android:name=".Main2Activity"
             android:label="Main2Activity"
-
             android:theme="@style/AppTheme.NoActionBar"></activity>
         <activity android:name=".NormalPost" />
         <activity android:name=".Event" />
@@ -28,5 +27,4 @@
             </intent-filter>
         </activity>
     </application>
-
 </manifest>
