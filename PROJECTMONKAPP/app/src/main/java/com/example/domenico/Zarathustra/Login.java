@@ -31,6 +31,18 @@ public class Login extends AppCompatActivity {
         password = findViewById(R.id.password);
         doLogin = findViewById(R.id.login_button);
         error = findViewById(R.id.error);
+        Beacon[] beacons = {
+                new Beacon ("62263", new PercentagePosition (0.05, 0.05)),
+                new Beacon ("6146", new PercentagePosition (0.02, 0.22)),
+                new Beacon ("6130", new PercentagePosition (0.15, 0.32)),
+                new Beacon ("6124", new PercentagePosition (0.295, 0.295)),
+                new Beacon ("6125",  new PercentagePosition (0.68, 0.295)),
+                new Beacon ("6134", new PercentagePosition (0.295, 0.71)),
+                new Beacon ("6135", new PercentagePosition (0.68, 0.71)),
+                new Beacon ("64520", new PercentagePosition (0.895, 0.24)),
+                new Beacon ("38748", new PercentagePosition (0.895, 0.595))
+        };
+        BeaconInfo.init (this, beacons);
         final Intent goToHomePage = new Intent(Login.this, HomePage.class);
         if (API.getInstance().isSessionAlreadyStarted()) {
             finish();

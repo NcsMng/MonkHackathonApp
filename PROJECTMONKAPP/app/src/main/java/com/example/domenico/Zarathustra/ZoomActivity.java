@@ -1,4 +1,4 @@
-package com.example.domenico.Zarathustra;
+package com.example.mappa3;
 
 import android.content.Context;
 import android.graphics.Bitmap;

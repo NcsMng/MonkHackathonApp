@@ -1,7 +1,6 @@
 package com.example.domenico.Zarathustra.backend.server.tables;
 
 import com.example.domenico.Zarathustra.backend.server.tables.user.User;
-import com.quattrup1.db.User;
 
 import java.util.Date;
 
