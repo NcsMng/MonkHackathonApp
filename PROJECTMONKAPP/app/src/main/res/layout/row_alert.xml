@@ -1,9 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:layout_height="match_parent"
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    xmlns:android="http://schemas.android.com/apk/res/android" >
 <LinearLayout
     android:layout_height="wrap_content"
     android:layout_width="match_parent"
     android:orientation="vertical"
     android:layout_margin="10dp"
+    android:backgroundTint="@color/monkRed"
     android:background="@drawable/border_cardview"
     xmlns:android="http://schemas.android.com/apk/res/android">
 
@@ -26,7 +31,7 @@
             android:id="@+id/name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Nome e Cognome"
+            android:text="Matteo Aleo"
             android:textSize="25dp"
             android:textColor="#FFF"
             />
@@ -43,7 +48,7 @@
             android:id="@+id/title"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Titolo"
+            android:text="Progetto X"
             android:layout_marginRight="10dp"
             android:textStyle="bold"
             android:layout_marginLeft="20dp"
@@ -62,9 +67,10 @@
             android:layout_marginBottom="10dp"
             android:layout_marginTop="7dp"
             android:textColor="#FFF"
-            android:text="Ragazzi il televisore si é rotto, ne vogliamo comprare uno nuovo?"
+            android:text="Scadenza Progetto 20 Aprile 2019!!"
             />
 
     </LinearLayout>
 
+</LinearLayout>
 </LinearLayout>

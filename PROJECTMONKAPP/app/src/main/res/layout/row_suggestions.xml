@@ -1,4 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:layout_height="match_parent"
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    xmlns:android="http://schemas.android.com/apk/res/android" >
 <LinearLayout
     android:layout_height="wrap_content"
     android:layout_width="match_parent"
@@ -26,7 +30,7 @@
             android:id="@+id/name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Nome e Cognome"
+            android:text="Gabriel Neacsu"
             android:textSize="25dp"
             />
 
@@ -42,7 +46,7 @@
             android:id="@+id/title"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Titolo"
+            android:text="Consiglio"
             android:layout_marginRight="10dp"
             android:textStyle="bold"
             android:layout_marginLeft="20dp"
@@ -59,7 +63,7 @@
             android:layout_marginRight="10dp"
             android:layout_marginBottom="10dp"
             android:layout_marginTop="7dp"
-            android:text="Ragazzi il televisore si é rotto, ne vogliamo comprare uno nuovo?"
+            android:text="Potremmo migliorare questo o quello..."
             />
 
     </LinearLayout>
@@ -79,4 +83,5 @@
 
     </LinearLayout>
 
+</LinearLayout>
 </LinearLayout>
