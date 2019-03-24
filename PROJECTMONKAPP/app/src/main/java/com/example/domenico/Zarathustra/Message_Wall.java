@@ -33,10 +33,13 @@ public class Message_Wall extends AppCompatActivity implements PopupMenu.OnMenuI
     public boolean onMenuItemClick(MenuItem item) {
         switch (item.getItemId()) {
             case R.id.warning:
+                Intent warningIntent = new Intent(Message_Wall.this, AddAlert.class );
                 return true;
             case R.id.event:
+                Intent eventIntent = new Intent(Message_Wall.this, Event.class );
                 return true;
             case R.id.suggestion:
+                Intent suggestionIntent = new Intent(Message_Wall.this, Event.class );
                 return true;
             default:
                 return false;
