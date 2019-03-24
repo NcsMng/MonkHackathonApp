@@ -6,6 +6,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import java.util.List;
+
+import com.example.domenico.Zarathustra.backend.api.API;
 import com.example.domenico.Zarathustra.backend.server.tables.Post;
 
 
@@ -22,7 +24,7 @@ public class PostsAdapter extends RecyclerView.Adapter<PostsViewHolder> {
     @Override
     public void onBindViewHolder(@NonNull PostsViewHolder PostsViewHolder, int i) {
         // recupera i dati per quella posizione
-        int imagepath = posts.get(i).API.getAuthor().getImageId();
+        int imagepath = posts.get(i).getAuthorId().
         String fullname = "" + posts.get(i).getAuthor().getName() + posts.get(i).getAuthor().getSurname();
         String content = posts.get(i).getContent();
         String title = posts.get(i).getTitle();
