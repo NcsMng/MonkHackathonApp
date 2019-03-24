@@ -1,9 +1,13 @@
 package com.example.domenico.Zarathustra.backend.api;
 
 import android.content.Context;
+
+import com.example.domenico.Zarathustra.backend.server.tables.AlertPost;
 import com.example.domenico.Zarathustra.backend.server.tables.Post;
 import com.example.domenico.Zarathustra.backend.server.tables.PostDB;
 import com.example.domenico.Zarathustra.backend.server.tables.User;
+
+import java.util.Arrays;
 
 public class API {
 	private static API instance;
@@ -24,7 +28,7 @@ public class API {
 		return instance;
 	}
 
-	public void init(Context c){
+	public static void init(Context c){
 		context=c;
 	}
 
@@ -48,8 +52,11 @@ public class API {
 		return PostDB.getInstance(context).getUserDAO().getUser(id);
 	}
 
-	public Post[] getPosts(){
-		//Alert
+	public Post[] getAlertAndEventPosts(){
+		PostDB db = PostDB.getInstance(context);
+        /*AlertPost[] alerts = Arrays.sort(db.getAlertPostDAO().getAlertPosts(), a ->{
+
+        });*/
 		Post[] arr = new Post[10];
 		return arr;
 	}
