@@ -24,8 +24,8 @@ public class PostsAdapter extends RecyclerView.Adapter<PostsViewHolder> {
     @Override
     public void onBindViewHolder(@NonNull PostsViewHolder PostsViewHolder, int i) {
         // recupera i dati per quella posizione
-        int imagepath = posts.get(i).getAuthorId().
-        String fullname = "" + posts.get(i).getAuthor().getName() + posts.get(i).getAuthor().getSurname();
+        int imagepath = API.getInstance().getUser(posts.get(i).getAuthorId()).getImageId();
+        String fullname = ""+ API.getInstance().getUser(posts.get(i).getAuthorId()).getName() + API.getInstance().getUser(posts.get(i).getAuthorId()).getSurname();
         String content = posts.get(i).getContent();
         String title = posts.get(i).getTitle();
         PostsViewHolder.profileImage.setImageResource(imagepath);

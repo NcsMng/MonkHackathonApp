@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name">MonkAPP2K19</string>
     <string name="errorMessage"> </string>
+    <string name="title_activity_message_wall">MessageWall</string>
 </resources>
