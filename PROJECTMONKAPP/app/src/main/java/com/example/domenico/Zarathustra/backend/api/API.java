@@ -19,6 +19,8 @@ import java.io.ObjectOutputStream;
 import java.io.Serializable;
 import java.net.Socket;
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 
 public class API {
@@ -26,9 +28,11 @@ public class API {
 	private static API instance;
 	static Context context;
 	DB runningDB;
+	Date lastUpdate;
 	//private BackEndMap backEndMap;
 
 	private API() {
+	    getDB();
 	}
 
 	public static API getInstance() {
@@ -80,7 +84,7 @@ public class API {
 	}
 
 	private void getDB(){
-	    if(runningDB==null){
+	    if(runningDB==null||Calendar.getInstance().getTime().getTime()- lastUpdate.getTime()>60000){
             Socket client;
             ObjectOutputStream out;
             ObjectInputStream in;
@@ -93,6 +97,7 @@ public class API {
                 out.writeObject(request);
                 Response response = (Response)in.readObject();
                 runningDB = (DB)response.getResponse()[1];
+                lastUpdate = Calendar.getInstance().getTime();
             }catch(Exception e){
                 e.printStackTrace();
             }
